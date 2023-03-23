@@ -1,0 +1,1 @@
+{"version":3,"file":"regular.js","names":["console","log"],"sources":["files/regular.js"],"sourcesContent":["console.log(\"Hello from regular!\");"],"mappings":"AAAAA,OAAO,CAACC,GAAR,CAAY,qBAAZ"}

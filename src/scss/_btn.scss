@@ -1,0 +1,32 @@
+.btn {
+	display: inline-block;
+	height: 44px;
+	color: $colorBlack;
+	font-size: 14px;
+	font-weight: 400;
+	font-family: Roboto, sans-serif;
+	line-height: 40px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 20px;
+	transition: all .3 ease;
+	outline: none;
+	cursor: pointer;
+
+	&:hover,
+	&:active {
+		color: $colorWhite;
+		outline: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&.disabled,
+	&[disabled] {
+		pointer-events: none;
+		opacity: .5;
+		cursor: auto;
+	}
+}

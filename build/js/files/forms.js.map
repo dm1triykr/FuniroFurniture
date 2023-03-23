@@ -1,0 +1,1 @@
+{"version":3,"file":"forms.js","names":["console","log"],"sources":["files/forms.js"],"sourcesContent":["console.log(\"Hello from forms!\");"],"mappings":"AAAAA,OAAO,CAACC,GAAR,CAAY,mBAAZ"}

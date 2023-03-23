@@ -1,0 +1,22 @@
+{
+  "name": "gulp-template",
+  "description": "websystems.solutions gulp template",
+  "main": "",
+  "authors": [
+    "websystems.solutions"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "bootstrap": "^4.3.1"
+  }
+}

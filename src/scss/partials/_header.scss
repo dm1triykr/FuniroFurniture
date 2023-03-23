@@ -1,0 +1,197 @@
+.header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    &__wrapper {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 50px;
+    }
+    &__container {
+    }
+    &__body {
+        display: flex;
+        align-items: center;
+        padding: 5px 0;
+        min-height: 125px;
+    }
+    &__main {
+        display: flex;
+        align-items: center;
+        flex: 0 0 calc(494/1240 * 100%);
+    }
+    &__logo {
+        font-weight: 700;
+        font-size: 24px;
+        color: #000000;
+        line-height: calc(29 / 24 * 100%);
+    }
+    &__menu {
+    }
+    &__search {
+        @media (min-width: $md2) {
+            flex: 1 1 auto;
+        }
+    }
+    &__actions {
+    }
+}
+
+.menu {
+    flex: 0 1 420px;
+
+    &__body {
+    }
+    &__list {
+        @media (min-width: $md3) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 3px;
+        padding: 5px 0;
+        position: relative;
+        @media (any-hover: hover) {
+            &:hover {
+                .menu__sub-list {
+                    transform: translate(0px, 0px);
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+                .menu__arrow {
+                    transform: rotate(-180deg);
+                }
+                .menu__arrow,
+                .menu__link {
+                    color: $orangeColor;
+                }
+            }
+        }
+        @media (min-width: $md3) {
+            &._hover {
+                .menu__sub-list {
+                    transform: translate(0px, 0px);
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+                .menu__arrow {
+                    transform: rotate(-180deg);
+                }
+                .menu__arrow,
+                .menu__link {
+                    color: $orangeColor;
+                }
+            }
+        }
+    }
+    &__link {
+        font-weight: 500;
+        line-height: 150%;
+        color: inherit;
+        transition: color 0.3s ease 0s;
+    }
+    &__arrow {
+        margin: 0 0 0 8px;
+        transition: 0.3s ease 0s;
+        font-size: 8px;
+    }
+    &__sub-list {
+        position: relative;
+        background-color: $orangeColor;
+        padding: 15px;
+        flex: 1 1 100%;
+        @media (min-width: $md3) {
+            opacity: 0;
+            transition: all 0.3s ease 0s;
+            transform: translate(0px, 10px);
+            visibility: hidden;
+            min-width: 200px;
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+        }
+    }
+    &__sub-item {
+        &:not(:last-child) {
+            margin: 0px 0px 5px 0px;
+        }
+    }
+    &__sub-link {
+        color: #fff;
+        line-height: 120%;
+    }
+    
+}
+
+.search-form {
+    max-width: 473px;
+
+    &__icon {
+        display: none;
+    }
+    &__item {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+    }
+    &__btn {
+        flex: 0 0 45px;
+        height: 45px;
+        color: #333333;
+        font-size: 15px;
+    }
+    &__input {
+        color: $darkGrayColor;
+        padding: 0px 20px 0px 0px;
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+
+.actions-header {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    &__item {
+
+        &_favorites {
+        }
+
+        &_user {
+        }
+    }
+}
+
+.cart-header {
+}
+.cart-header__icon {
+}
+.icon-cart {
+}
+.cart-header__body {
+}
+.cart-header__list {
+}
+.cart-list {
+}
+
+._ibg {
+}
+.icon-menu {
+}
