@@ -49,8 +49,11 @@ if (spollersArray.length > 0) {
         if (item.value === mediaBreakpoint && item.type === mediaType) {
           return true;
         }
-      });
-      matchMedia.addListener(function () {
+      }); // matchMedia.addListener(function () {
+      //     initSpollers(spollersArray, matchMedia);
+      // })
+
+      matchMedia.addEventListener('change', function () {
         initSpollers(spollersArray, matchMedia);
       });
       initSpollers(spollersArray, matchMedia);
@@ -193,7 +196,20 @@ let _slideToggle = (target, duration = 500) => {
   } else {
     return _slideUp(target, duration);
   }
-};
+}; ///Burger Menu
+
+
+const burgerBtn = document.querySelector('.icon-menu');
+
+if (burgerBtn) {
+  const menuBody = document.querySelector('.menu__body');
+  burgerBtn.addEventListener('click', function (e) {
+    document.body.classList.toggle('_lock');
+    burgerBtn.classList.toggle('_active');
+    menuBody.classList.toggle('_active');
+  });
+} ///////////////////////////////////
+
 
 window.onload = function () {
   document.addEventListener('click', documentActions); //Actions (делегирование события click)
@@ -215,7 +231,10 @@ window.onload = function () {
       document.querySelector('.search-form').classList.toggle('_active');
     } else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active') != null) {
       document.querySelector('.search-form._active').classList.remove('_active');
-    }
+    } // if(targetElement.classList.contains('icon-menu')) {
+    //     targetElement.classList.contains('icon-menu').classList.toggle('_active');
+    // }
+
   }
 };
 

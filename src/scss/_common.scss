@@ -65,6 +65,10 @@ body {
 	line-height: 1.25;
 }
 
+body._lock {
+	overflow: hidden;
+}
+
 * {
 	outline: none;
 	box-sizing: border-box;
