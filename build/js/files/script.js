@@ -1,13 +1,17 @@
-console.log("Hello from script!");
-const inputSearch = document.querySelector('.search-form__input');
-const placeholderSearch = inputSearch.dataset.value;
-inputSearch.placeholder = placeholderSearch;
-inputSearch.addEventListener('focus', function (e) {
-  e.placeholder = '';
-}); //Spollers
+//Placeholders
+const searchInputs = document.querySelectorAll('input');
+const searchPlaceholders = [];
+
+for (let iter = 0; iter < searchInputs.length; iter++) {
+  searchPlaceholders[iter] = searchInputs[iter].dataset.value;
+  searchInputs[iter].placeholder = searchPlaceholders[iter];
+  searchInputs[iter].addEventListener('focus', function (e) {
+    e.placeholder = '';
+  });
+} //Spollers
+
 
 const spollersArray = document.querySelectorAll('[data-spollers]');
-console.log(spollersArray);
 let testValue;
 
 if (spollersArray.length > 0) {

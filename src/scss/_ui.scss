@@ -1,0 +1,8 @@
+._footer-title {
+    @include adaptiv-value('font-size', 24, 20, 1);
+    // font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1240 - 320)));
+    line-height: calc(29/24*100%);
+    color: #000;
+    font-weight: 700;
+    padding: 0;
+}
