@@ -240,10 +240,14 @@ window.onload = function () {
     if (targetElement.classList.contains('products__more')) {
       getProducts(targetElement);
       e.preventDefault();
-    } // if(targetElement.classList.contains('icon-menu')) {
-    //     targetElement.classList.contains('icon-menu').classList.toggle('_active');
-    // }
+    }
 
+    if (targetElement.classList.contains('actions-product__button')) {
+      const productId = targetElement.closest('.item-product').dataset.pid;
+      addToCart(targetElement, productId); //console.log('Хотите добавить товар в корзину?');
+
+      e.preventDefault();
+    }
   } // Header
 
 
@@ -263,7 +267,7 @@ window.onload = function () {
   async function getProducts(button) {
     if (!button.classList.contains('_hold')) {
       button.classList.add('_hold');
-      const file = '../json/products.json';
+      const file = 'json/products.json';
       let response = await fetch(file, {
         method: "GET"
       });
@@ -351,6 +355,38 @@ window.onload = function () {
       productTemplate += productTemplateEnd;
       productsItems.insertAdjacentHTML('beforeend', productTemplate);
     });
+  }
+
+  function addToCart(productButton, productId) {
+    if (!productButton.classList.contains('_hold')) {
+      productButton.classList.add('_hold');
+      productButton.classList.add('_fly');
+      const cart = document.querySelector('.cart-header__icon');
+      const product = document.querySelector(`[data-pid="${productId}"]`);
+      const productImage = product.querySelector('.item-product__image');
+      const productImageFly = productImage.cloneNode(true);
+      const productImageFlyWidth = productImage.offsetWidth;
+      const productImageFlyHeight = productImage.offsetHeight;
+      const productImageFlyTop = productImage.getBoundingClientRect().top;
+      const productImageFlyLeft = productImage.getBoundingClientRect().left;
+      productImageFly.setAttribute('class', '_flyImage _ibg');
+      productImageFly.style.cssText = `
+                left: ${productImageFlyLeft}px;
+                top: ${productImageFlyTop}px;
+                width: ${productImageFlyWidth}px;
+                height: ${productImageFlyHeight}px;
+            `;
+      document.body.append(productImageFly);
+      const cartFlyLeft = cart.getBoundingClientRect().left;
+      const cartFlyTop = cart.getBoundingClientRect().top;
+      productImageFly.style.cssText = `
+                left: ${cartFlyLeft}px;
+                top: ${cartFlyTop}px;
+                width: 0px;
+                height: 0px;
+                opacity: 0;
+            `;
+    }
   }
 };
 //# sourceMappingURL=script.js.map
