@@ -12,6 +12,9 @@ gulp.task( 'copy', (done) => {
 		.pipe( newer( config.dest.img ) )
 		.pipe( gulp.dest( config.dest.img ) );
 
+	gulp.src(config.src.json + '/*.json') 
+		.pipe(gulp.dest(config.dest.json));
+
 	// copy all files from /src/fonts directory
 	gulp.src( config.src.root + 'fonts/*.*' )
 		.pipe( newer( config.dest.css + 'fonts/' ) )
@@ -32,7 +35,7 @@ gulp.task( 'copy', (done) => {
 // watch statics and copy when changed
 gulp.task( 'copy:watch', () => {
 	gulp.watch(
-		[config.src.img + '*', config.src.root + 'fonts/*'],
+		[config.src.img + '*', config.src.root + 'fonts/*', config.src.json + '*'],
 		gulp.series('copy' ,
 		(done) => {
 			done()

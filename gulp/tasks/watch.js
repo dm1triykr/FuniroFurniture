@@ -6,7 +6,7 @@ gulp.task( 'watch', gulp.parallel(
     'sprite:watch',
     'copy:watch',
     'styles:watch',
-    'js:watch',
+    'js:watch'
 ));
 
 gulp.task( 'default',
@@ -29,6 +29,6 @@ gulp.task( 'build',
 		'copy',
 		'styles',
 		'js',
-		'images',
+		'images'
 	))
 );

@@ -235,6 +235,11 @@ window.onload = function () {
       document.querySelector('.search-form').classList.toggle('_active');
     } else if (!targetElement.closest('.search-form') && document.querySelector('.search-form._active') != null) {
       document.querySelector('.search-form._active').classList.remove('_active');
+    }
+
+    if (targetElement.classList.contains('products__more')) {
+      getProducts(targetElement);
+      e.preventDefault();
     } // if(targetElement.classList.contains('icon-menu')) {
     //     targetElement.classList.contains('icon-menu').classList.toggle('_active');
     // }
@@ -253,7 +258,88 @@ window.onload = function () {
   };
 
   const headerObserver = new IntersectionObserver(callback);
-  headerObserver.observe(headerElement);
+  headerObserver.observe(headerElement); //Load More Products
+  // async function getProducts(button) {
+  //     if(!button.classList.contains('_hold')) {
+  //         button.classList.add('_hold');
+  //         const file = '../json/products.json';
+  //         let response = await fetch(file, {
+  //             method: "GET"
+  //         });
+  //         if(response.ok) {
+  //             let result = await response.json();
+  //             loadProducts(result);
+  //             button.classList.remove('_hold');
+  //             button.remove();
+  //         } else {
+  //             alert('Ошибка');
+  //         }
+  //     }
+  // }
+  // function loadProducts(data) {
+  //     const productsItems = document.querySelector('.products__items');
+  //     data.products.forEach(item => {
+  //         const productId = item.id;
+  //         const productUrl = item.url;
+  //         const productImage = item.image;
+  //         const productTitle = item.title;
+  //         const productText = item.text;
+  //         const productPrice = item.price;
+  //         const productOldPrice = item.priceOld;
+  //         const productShareUrl = item.shareUrl;
+  //         const productLikeUrl = item.likeUrl;
+  //         const productLabels = item.labels;
+  //         let productTemplateStart = `<article data-pid="${productId}" class="products__item item-product">`;
+  //         let productTemplateEnd = `</article>`;
+  //         let productTemplateLabels = ``;
+  //         if(productLabels) {
+  //             let productTemplateLabelsStart = `<div class="item-product__labels">`;
+  //             let productTemplateLabelsEnd = `</div>`;
+  //             let productTemplateLabelsContent = ``;
+  //             productLabels.forEach(labelItem => {
+  //                 productTemplateLabelsContent += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
+  //             })
+  //             productTemplateLabels += productTemplateLabelsStart;
+  //             productTemplateLabels += productTemplateLabelsContent;
+  //             productTemplateLabels += productTemplateLabelsEnd;
+  //         }
+  //         let productTemplateImage = `<a href="${productUrl}" class="item-product__image _ibg">
+  //         <img src="img/products/${productImage}" alt="${productTitle}">
+  //     </a>`;
+  //         let productTemplateBodyStart = `<div class="item-product__body">`;
+  //         let productTemplateBodyEnd = `</div>`;
+  //         let productTemplateContent = `<div class="item-product__content">
+  //         <h5 class="item-product__title">${productTitle}</h5>
+  //         <div class="item-product__text">${productText}</div>
+  //     </div>`;
+  //         let tmp = `<article data-pid="1" class="products__item item-product">
+  //         <div class="item-product__labels">
+  //             <div class="item-product__label item-product__label_sale">-30%</div>
+  //             <!-- <div class="item-product__label item-product__label_new">New</div> -->
+  //         </div>
+  //         <a href="" class="item-product__image _ibg">
+  //             <img src="img/products/1.jpg" alt="Syltherine">
+  //         </a>
+  //         <div class="item-product__body">
+  //             <div class="item-product__content">
+  //                 <h5 class="item-product__title">Syltherine</h5>
+  //                 <div class="item-product__text">Stylish cafe chair</div>
+  //             </div>
+  //             <div class="item-product__prices">
+  //                 <div class="item-product__price">Rp 2.500.000</div>
+  //                 <div class="item-product__price item-product__price_old">Rp 3.500.000</div>
+  //             </div>
+  //             <div class="item-product__actions actions-product">
+  //                 <div class="actions-product__body">
+  //                     <a href="" class="actions-product__button btn btn_white">Add to cart</a>
+  //                     <a href="" class="actions-product__link btn icon-share">Share</a>
+  //                     <a href="" class="actions-product__link btn icon-favorite">Like</a>
+  //                 </div>
+  //             </div>
+  //         </div>
+  //     </article>`;
+  //     });
+  // }
 };
 
 console.log("Hello from forms!");

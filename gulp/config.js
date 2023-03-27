@@ -4,7 +4,8 @@ module.exports = {
 		sass: 'src/scss/',
 		js: 'src/js/',
 		img: 'src/img/',
-		helpers: 'gulp/helpers/'
+		helpers: 'gulp/helpers/',
+		json: 'src/json/'
 	},
 
 	dest: {
@@ -12,6 +13,7 @@ module.exports = {
 		css: 'build/css/',
 		html: 'build/',
 		js: 'build/js/',
-		img: 'build/img/'
+		img: 'build/img/',
+		json: 'build/json/'
 	}
 };
