@@ -225,6 +225,7 @@ button {
 	}
 	&::after {
 		content: '';
+		transform: translate(1px, 1px);
 		width: 11px;
 		height: 11px;
 		background-color: #d8d8d8;
